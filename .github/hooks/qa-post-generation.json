@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "type": "command",
+        "description": "Validación post-generación de archivos MD/HTML",
+        "command": "bash .github/hooks/scripts/validate-output.sh ${filePath}",
+        "windows": "powershell -ExecutionPolicy Bypass -File .github/hooks/scripts/validate-output.ps1 -FilePath '${filePath}'",
+        "timeout": 15,
+        "events": ["create_file", "replace_string_in_file"]
+      }
+    ]
+  }
+}

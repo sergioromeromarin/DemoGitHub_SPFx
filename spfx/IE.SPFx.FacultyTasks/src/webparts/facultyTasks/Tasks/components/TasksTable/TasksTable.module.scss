@@ -1,0 +1,339 @@
+@import '~@fluentui/react/dist/sass/References.scss';
+@import 'src/styles/Mixins.module.scss';
+@import '../../../../../styles/font';
+
+.tableContainer {
+	padding: 1.2rem 2rem;
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.1rem;
+	color: "[theme:bodyText, default: #323130]";
+	color: var(--bodyText);
+
+	@include media(xs) {
+		padding: 0.8rem;
+	}
+
+	@include media(sm) {
+		padding: 0.8rem;
+	}
+
+	.loading {
+		padding: 18px 0;
+	}
+
+	.tag {
+		margin: 0 0 8px;
+		font-size: 20px;
+		font-weight: 600;
+		letter-spacing: 0.4px;
+		color: var(--bodyText);
+		text-transform: uppercase;
+	}
+
+	.title {
+		margin: 0 0 8px;
+		font-size: 38px;
+		line-height: 1.05;
+		font-weight: 800;
+		letter-spacing: 0.2px;
+		color: var(--bodyText);
+		text-transform: uppercase;
+
+		@include media(xs) {
+			font-size: 28px;
+			line-height: 1.15;
+		}
+
+		@include media(sm) {
+			font-size: 28px;
+			line-height: 1.15;
+		}
+	}
+
+	.subTitle {
+		margin: 0 0 8px;
+		font-size: 15px;
+		line-height: 1.05;
+		font-weight: 400;
+		letter-spacing: 0.2px;
+		color: var(--bodyText);
+		opacity: 0.8;
+		text-transform: uppercase;
+		padding: 18px 0;
+	}
+
+	.searchRow {
+		display: flex;
+		align-items: flex-end;
+		gap: 12px;
+		margin-bottom: 12px;
+		flex-wrap: wrap;
+	}
+
+	.searchBox {
+		flex: 1;
+		min-width: 260px;
+	}
+
+	.filtersRight {
+		display: flex;
+		gap: 12px;
+		margin-left: auto;
+		flex-wrap: wrap;
+	}
+
+	.filterField {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		min-width: 220px;
+		max-width: 260px;
+	}
+
+	.filterLabel {
+		font-size: 12px;
+		font-weight: 600;
+		color: var(--bodyText);
+		text-transform: uppercase;
+		letter-spacing: 0.2px;
+		margin-left: 8px;
+	}
+
+	.filterDropdown {
+		width: 100%;
+	}
+
+	.dropdownTitleWrap {
+		display: block;
+		white-space: normal;
+		line-height: 1.2;
+		padding: 2px 0;
+	}
+
+	@include media(xs) {
+		.searchRow {
+			align-items: stretch;
+		}
+
+		.searchBox {
+			flex: 1 1 100%;
+			min-width: 0;
+		}
+
+		.filtersRight {
+			flex: 1 1 100%;
+			margin-left: 0;
+		}
+
+		.filterField {
+			flex: 1 1 100%;
+			min-width: 0;
+			max-width: none;
+		}
+	}
+
+	@include media(sm) {
+		.searchRow {
+			align-items: stretch;
+		}
+
+		.searchBox {
+			flex: 1 1 100%;
+			min-width: 0;
+		}
+
+		.filtersRight {
+			flex: 1 1 100%;
+			margin-left: 0;
+		}
+
+		.filterField {
+			flex: 1 1 100%;
+			min-width: 0;
+			max-width: none;
+		}
+	}
+
+	:global {
+		.ms-DetailsList {
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		.ms-DetailsRow-cell {
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		.ms-Persona {
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		.ms-DetailsHeader-cellTitle {
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		.ms-SearchBox {
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		.ms-SearchBox {
+			position: relative;
+			box-sizing: border-box;
+			min-height: 40px;
+			height: 40px;
+			border: 1px solid var(--bodyDivider);
+			border-radius: 9999px;
+		}
+
+		.ms-SearchBox:hover,
+		.ms-SearchBox.is-active,
+		.ms-SearchBox:focus-within {
+			border-color: var(--bodyDivider);
+		}
+
+		.ms-SearchBox-field {
+			font-size: 14px;
+			padding-right: 48px;
+			outline: none !important;
+			box-shadow: none !important;
+		}
+
+		.ms-SearchBox-icon {
+			color: var(--bodyText);
+			opacity: 0.7;
+		}
+
+		.ms-SearchBox-clearButton {
+			position: absolute;
+			right: 6px;
+			top: 50%;
+			transform: translateY(-50%);
+			margin: 0;
+		}
+
+		.ms-SearchBox-clearButton,
+		.ms-SearchBox-iconContainer {
+			width: 32px;
+			height: 32px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.ms-SearchBox::after,
+		.ms-SearchBox.is-active::after {
+			border: 0 !important;
+			box-shadow: none !important;
+		}
+
+		.ms-Dropdown .ms-Dropdown-title {
+			box-sizing: border-box;
+			min-height: 40px;
+			height: auto;
+			padding: 6px 12px;
+			border: 1px solid var(--bodyDivider);
+			border-radius: 9999px;
+			display: flex;
+			align-items: center;
+			white-space: normal;
+			line-height: 1.2;
+			outline: none !important;
+			box-shadow: none !important;
+		}
+
+		.ms-Dropdown:hover .ms-Dropdown-title,
+		.ms-Dropdown:focus-within .ms-Dropdown-title {
+			border-color: var(--bodyDivider);
+		}
+
+		.ms-Dropdown-title::after,
+		.ms-Dropdown:focus::after,
+		.ms-Dropdown:focus-within::after {
+			border: 0 !important;
+			box-shadow: none !important;
+		}
+
+		.ms-Dropdown-caretDownWrapper {
+			align-self: center;
+		}
+
+		.ms-Dropdown-optionText {
+			white-space: normal;
+			line-height: 1.2;
+		}
+
+		.ms-Dropdown.has-selected .ms-Dropdown-title {
+			min-height: 40px;
+		}
+
+		.ms-Dropdown-item {
+			height: auto;
+			white-space: normal;
+		}
+
+		.ms-Dropdown-item .ms-Checkbox-label {
+			white-space: normal;
+			line-height: 1.2;
+		}
+
+		.ms-Checkbox-label:focus {
+			outline: none !important;
+			box-shadow: none !important;
+		}
+
+		.ms-DetailsHeader {
+			background: var(--link);
+			padding-top: 0;
+		}
+
+		.ms-DetailsHeader-cell {
+			background: var(--link);
+			border: 0;
+
+			&:hover {
+				background: var(--link);
+			}
+		}
+
+		.ms-DetailsHeader-cellName {
+			color: #fff;
+			font-weight: 700;
+			letter-spacing: 0.2px;
+			text-transform: uppercase;
+			font-size: 12px;
+		}
+
+		.ms-DetailsRow {
+			border-bottom: 1px solid var(--bodyDivider);
+		}
+
+		.ms-DetailsRow-cell {
+			padding-top: 16px;
+			padding-bottom: 16px;
+			color: var(--bodyText);
+		}
+	}
+
+	.taskTypeColumn {
+		text-transform: uppercase;
+		font-weight: 700;
+	}
+
+	.statusPendingColumn {
+		text-transform: uppercase;
+		color: red;
+		font-weight: 700;
+	}
+
+	.statusCompletedColumn {
+		text-transform: uppercase;
+		color: green;
+		font-weight: 700;
+	}
+
+	.expiredtatusColumn {
+		text-transform: uppercase;
+		color: blue;
+		font-weight: 700;
+	}
+}

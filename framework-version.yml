@@ -1,0 +1,5 @@
+# Versión del framework agéntico usada en este repo
+# Actualizar cuando se sincronice con agentic-framework
+framework_version: "1.0.0"
+synced_date: "2026-04-28"
+framework_repo: "https://github.com/your-org/agentic-framework"

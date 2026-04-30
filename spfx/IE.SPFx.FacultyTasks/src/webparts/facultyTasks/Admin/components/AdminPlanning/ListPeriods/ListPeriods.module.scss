@@ -1,0 +1,26 @@
+@import '~@fluentui/react/dist/sass/References.scss';
+
+.menuActions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.container {
+    padding: 1.2rem 2rem;
+
+    :global {
+        .ms-DetailsList {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .ms-DetailsRow-cell {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .ms-DetailsHeader-cellTitle {
+            font-family: 'Montserrat', sans-serif;
+        }
+    }
+}

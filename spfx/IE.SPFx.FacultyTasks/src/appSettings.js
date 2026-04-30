@@ -1,0 +1,10 @@
+define([], function() { return {
+     "AzureAd": {
+          "ApplicationName": "IE-FacultyHubWebAPI-Dev",
+          "ApplicationUri": "api://c051e93e-10bb-4216-a05d-651ac7dd44f9"
+     },
+     "FacultyTasksAPIURL": "https://ie-fhub-dev-planni-api-svc-001.azurewebsites.net",
+     "AdminGroupId": "e1b2f3a2-dee7-43f2-b3fc-bd5389e438a9",
+     "UserGroupId": "15362c89-cf9f-4854-8627-a26a8cf5b35d",
+     "TaskUserGroupId": "15362c89-cf9f-4854-8627-a26a8cf5b35d"
+}});

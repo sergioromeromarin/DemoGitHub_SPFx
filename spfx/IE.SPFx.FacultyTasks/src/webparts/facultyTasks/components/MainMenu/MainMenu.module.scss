@@ -1,0 +1,116 @@
+@import '~@fluentui/react/dist/sass/References.scss';
+@import 'src/styles/Mixins.module.scss';
+@import '../../../../styles/font';
+
+.mainMenu {
+  position: sticky;
+  top: 85px;
+  z-index: 250;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background-color: #e9f1fb;
+  border-bottom: 1px solid #edebe9;
+  padding: 6px 12px;
+  overflow-x: auto;
+  overflow-y: visible;
+
+  @include media(xs) {
+    top: 55px;
+    padding: 3px 0px;
+    gap: 0px;
+  }
+
+  @include media(sm) {
+    top: 55px;
+    padding: 3px 0px;
+    gap: 0px;
+  }
+}
+
+.menuGroup {
+  position: relative;
+}
+
+.menuItem {
+  background: none;
+  border: none;
+  padding: 12px 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+
+  @include media(xs) {
+    padding: 12px 8px;
+    font-weight: 600;
+  }
+
+  @include media(sm) {
+    padding: 12px 8px;
+    font-weight: 600;
+  }
+}
+
+.active {
+  color: #005fcc;
+}
+
+.caret {
+  margin-left: 8px;
+  font-size: 0.9em;
+  cursor: pointer;
+  padding: 4px;
+  display: inline-block;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.6);
+  }
+}
+
+.dropdown {
+  position: fixed;
+  min-width: 260px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  z-index: 9999;
+  padding: 8px;
+  border-radius: 4px;
+
+  @include media(xs) {
+    min-width: initial;
+  }
+
+  @include media(sm) {
+    min-width: initial;
+  }
+}
+
+.dropdownItem {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+
+  @include media(xs) {
+    padding: 8px 10px;
+  }
+
+  @include media(sm) {
+    padding: 8px 10px;
+  }
+
+  &:hover,
+  &:focus {
+    background: #f5f7fa;
+    outline: none;
+  }
+}

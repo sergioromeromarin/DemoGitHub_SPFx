@@ -1,0 +1,389 @@
+@import 'src/styles/Mixins.module.scss';
+@import '../../../../../styles/font';
+
+.assignedSubjectsSection {
+    display: flex;
+    flex-direction: column;
+
+    .periodFilterArea {
+        padding: 1.2rem 2rem;
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.1rem;
+        color: "[theme:bodyText, default: #323130]";
+        color: var(--bodyText);
+        background-color: var(--bodyDivider);
+
+        @include media(xs) {
+            padding: 0.8rem;
+        }
+
+        @include media(sm) {
+            padding: 0.8rem;
+        }
+
+        h1 {
+            text-transform: uppercase;
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1.1px;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+
+            @include media(xs) {
+                font-size: 2rem;
+                line-height: 2.4rem;
+            }
+
+            @include media(sm) {
+                font-size: 2rem;
+                line-height: 2.4rem;
+            }
+        }
+    }
+
+    .assignmentsResultArea {
+
+        padding: 1.2rem 2rem;
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.6rem;
+        color: "[theme:bodyText, default: #323130]";
+        color: var(--bodyText);
+
+        @include media(xs) {
+            padding: 0.8rem;
+        }
+
+        @include media(sm) {
+            padding: 0.8rem;
+        }
+
+        h1 {
+            text-transform: uppercase;
+            font-size: 5.2rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            margin: 0;
+        }
+
+        h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            font-style: italic;
+            margin: 0;
+        }
+
+
+        .assigmentsSummary {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            column-gap: 8rem;
+
+            @include media(xs) {
+                flex-direction: column;
+                row-gap: 1rem;
+            }
+
+            @include media(sm) {
+                flex-direction: column;
+                row-gap: 1rem;
+            }
+
+            .assigmentSummary {
+                width: 30%;
+
+                .assigmentSummaryTitle {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                    width: 100%;
+
+                    h1 {
+                        @include media(xs) {
+                            font-size: 3rem;
+                        }
+
+                        @include media(sm) {
+                            font-size: 3rem;
+                        }
+                    }
+                }
+
+                .assigmentSummaryNumbers {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: baseline;
+
+                    h2 {
+                        font-size: 3.2rem;
+                        margin: 0;
+
+                        @include media(xs) {
+                            font-size: 2.8rem;
+                        }
+
+                        @include media(sm) {
+                            font-size: 2.8rem;
+                        }
+                    }
+
+                    h3 {
+                        font-size: 1.9rem;
+                        font-weight: 500;
+                        font-style: normal;
+                        margin: 0;
+
+                        @include media(xs) {
+                            font-size: 1.6rem;
+                        }
+
+                        @include media(sm) {
+                            font-size: 1.6rem;
+                        }
+                    }
+                }
+
+                p {
+                    margin: 0;
+                }
+
+                h4 {
+                    margin: 0.4rem 0rem;
+                    font-size: 1.3rem;
+                }
+
+                .assigmentStatusIcon {
+                    font-size: 2.6rem;
+                    margin-bottom: 0.5rem;
+                    padding: 19px;
+                    border-radius: 50%;
+
+
+                    @include media(xs) {
+                        font-size: 1.2rem;
+                        padding: 8.7px;
+                        border-radius: 50%;
+                    }
+
+                    @include media(sm) {
+                        font-size: 1.2rem;
+                        padding: 8.7px;
+                        border-radius: 50%;
+                    }
+
+
+                }
+
+                .assigmentStatusIconPending {
+                    background-color: #fcd756;
+                }
+
+                .assigmentStatusIconAccepted {
+                    background-color: #1a9b50;
+                }
+
+                .assigmentStatusIconConflicted {
+                    background-color: #bd002f;
+                }
+
+
+            }
+
+        }
+
+        .assignmentsList {
+            display: flex;
+            flex-direction: column;
+            // row-gap: 1rem;
+            margin-top: 1.7rem;
+
+            .assignmentItem {
+                display: flex;
+                flex-direction: column;
+                row-gap: 0.5rem;
+                padding: 1rem 0.8rem;
+                position: relative;
+                margin-bottom: 2rem;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0.8rem;
+                    right: 0.8rem;
+                    top: -0.2rem;
+                    height: 1px;
+                    background-color: #0a0707;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+
+            .conflictedCompatibility {
+                background-color: #fef3f5;
+                color: #242424;
+            }
+
+            .assignmentHeader {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: baseline;
+
+                .assignmentHeaderData {
+                    font-size: 1.2rem;
+                    font-style: italic;
+                    display: flex;
+                    column-gap: 5rem;
+                }
+
+                .assignmentTags {
+                    display: flex;
+                    flex-direction: row;
+                    column-gap: 1rem;
+                    margin-top: 0.5rem;
+
+                    .tag {
+                        padding: 0.3rem 0.8rem;
+                        border-radius: 1rem;
+                        font-size: 0.8rem;
+                        font-weight: 600;
+                        color: #fff;
+                        font-style: normal;
+                        display: flex;
+                        align-items: center;
+                        column-gap: 4px;
+                    }
+
+                    .pendingTag {
+                        background-color: #fcd756;
+                        color: #000;
+                    }
+
+                    .acceptedTag {
+                        background-color: #1a9b50;
+                        color: white;
+                    }
+
+                    .rejectedTag {
+                        background-color: #bd002f;
+                        color: white;
+                    }
+
+                    .conflictedTag {
+                        background-color: #fcd2d9;
+                        color: #cc3459;
+                    }
+
+                    .compatibleTag {
+                        background-color: #def8e9;
+                        color: #3fad6d;
+                    }
+                }
+            }
+
+            .assignmentDetails {
+                display: flex;
+                flex-direction: column;
+                row-gap: 0.5rem;
+
+                h2 {
+                    text-transform: uppercase;
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    margin: 0;
+                }
+
+                span {
+                    display: flex;
+                    align-items: center;
+                    column-gap: 4px;
+                }
+
+                .assignmentInfo {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    column-gap: 6rem;
+
+                    @include media(xs) {
+                        flex-direction: column;
+                        row-gap: 0.3rem;
+                    }
+
+                    @include media(sm) {
+                        flex-direction: column;
+                        row-gap: 0.3rem;
+                    }
+
+                    span {
+                        img {
+                            @include media(xs) {
+                                width: 25px !important;
+                                height: 25px !important;
+                                margin-left: -6px;
+                            }
+
+                            @include media(sm) {
+                                width: 25px !important;
+                                height: 25px !important;
+                                margin-left: -6px;
+                            }
+                        }
+                    }
+                }
+
+                .messageBar {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 0.5rem;
+                    margin-top: 0.8rem;
+
+                    h3 {
+                        margin: 0;
+                        text-transform: uppercase;
+                        display: flex;
+                        align-items: center;
+                        column-gap: 4px;
+                    }
+
+                    p {
+                        margin: 0;
+                        display: flex;
+                        align-items: center;
+                        column-gap: 4px;
+                    }
+                }
+
+                .conflicted {
+                    color: #bd002f;
+                }
+
+                .completedAndCompatible {
+                    color: #1a9b50;
+                }
+
+                .allAvailable {
+                    color: #a38a2e;
+                }
+            }
+
+            .assigmentActions {
+                display: flex;
+                flex-direction: row;
+                column-gap: 1rem;
+                justify-content: flex-end
+            }
+        }
+
+    }
+}

@@ -1,0 +1,101 @@
+trigger:
+  branches:
+    include:
+      - main
+      - pre
+      - dev
+parameters:
+- name: checkout
+  type: string
+  default: self
+
+- name: nodeversion
+  type: string
+  default: 22.17.0
+
+- name: packagepath
+  type: string
+  default: $(Build.SourcesDirectory)
+
+- name: npmcommand
+  type: string
+  default: ci
+
+jobs:
+  - job: Build_SPPKG
+    pool:
+      vmImage: 'ubuntu-latest'
+      demands:
+      - npm
+      - node.js
+      - java
+    variables:
+      - name: npm_config_cache
+        value: ${{ parameters.packagepath }}/.npm
+
+      # Variable dinámica según la rama
+      - name: target_environment
+        ${{ if eq(variables['Build.SourceBranchName'], 'dev') }}:
+          value: 'package-dev'
+        ${{ if eq(variables['Build.SourceBranchName'], 'pre') }}:
+          value: 'package-pre'
+        ${{ if eq(variables['Build.SourceBranchName'], 'main') }}:
+          value: 'package-pro'
+      
+    steps:
+      - checkout: ${{ parameters.checkout }}
+
+      - script: |
+          cat ${{parameters.packagepath}}/config/package-solution.json
+          PACKAGE_SOLUTION_ID=$(jq --raw-output '.solution.id' < ${{parameters.packagepath}}/config/package-solution.json)
+          echo $PACKAGE_SOLUTION_ID
+          echo "##vso[task.setvariable variable=PackageSolutionId;isOutput=true]${PACKAGE_SOLUTION_ID}"
+        displayName: Get Id of solution
+        name: GetIdSolution
+
+      - script: |
+          cat ${{parameters.packagepath}}/config/package-solution.json
+          SKIP_FEATURE_DEPLOYMENT=$(jq --raw-output '.solution.skipFeatureDeployment' < ${{parameters.packagepath}}/config/package-solution.json)
+          echo $SKIP_FEATURE_DEPLOYMENT
+          echo "##vso[task.setvariable variable=SkipFeatureDeployment;isOutput=true]${SKIP_FEATURE_DEPLOYMENT}"
+        displayName: Get Skip Feature Deployment
+        name: GetSkipFeatureDeployment
+
+      - task: NodeTool@0
+        displayName: 'Use Node ${{parameters.nodeversion}}'
+        inputs:
+          versionSpec: ${{parameters.nodeversion}}
+          checkLatest: true
+          
+      - task: CacheBeta@1
+        displayName: Restore node_modules cache.
+        inputs:
+          key: npm | $(Agent.OS) |  ${{parameters.packagepath}}/package-lock.json
+          path: $(npm_config_cache)
+          cacheHitVar: CACHE_RESTORED
+        
+
+      - task: Npm@1
+        displayName: Npm install
+        inputs:
+          command: ${{parameters.npmcommand}}
+          workingDir: ${{parameters.packagepath}}
+
+      - task: Npm@1
+        displayName: Compile and publish for selected environment
+        inputs:
+          command: custom
+          workingDir: ${{parameters.packagepath}}
+          customCommand: run $(target_environment)
+
+      - script: |
+          CMD_GET_SPPKG_NAME=$(find ${{parameters.packagepath}}/sharepoint/solution -name '*.sppkg' -exec basename {} \;)
+          echo "##vso[task.setvariable variable=SpPkgFileName;isOutput=true]${CMD_GET_SPPKG_NAME}" 
+        displayName: Get SharePoint SPPKG Name
+        name: GetSharePointPackage
+      
+      - task: PublishBuildArtifacts@1
+        inputs:
+          pathtoPublish: '${{parameters.packagepath}}/sharepoint/solution/$(GetSharePointPackage.SpPkgFileName)' 
+          artifactName: 'drop' 
+        displayName: 'Publish SPFx artifacts'

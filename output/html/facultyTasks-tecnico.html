@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faculty Tasks — Documentación Técnica</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body { font-size: 0.95rem; color: #212529; line-height: 1.6; }
+    .hero { background: linear-gradient(135deg, #198754 0%, #0f5132 100%); }
+    .section-title { border-left: 4px solid #198754; padding-left: .75rem; margin-top: 2.5rem; margin-bottom: 1.2rem; font-weight: 600; }
+    .subsection-title { border-left: 3px solid #51cf66; padding-left: .6rem; margin-top: 1.8rem; margin-bottom: 1rem; color: #0f5132; font-weight: 500; }
+    .nav-pills .nav-link { font-size: .85rem; color: #495057; }
+    .nav-pills .nav-link.active { background-color: #198754; }
+    .sticky-nav { position: sticky; top: 0; z-index: 1000; background: #fff; border-bottom: 1px solid #dee2e6; padding: .6rem 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .card-method { border-left: 4px solid #198754; }
+    .highlight-box { background: #f0f7f0; border: 1px solid #b8e6c0; border-radius: .375rem; padding: 1rem 1.2rem; margin: 1rem 0; }
+    .warning-box { background: #fff8e6; border: 1px solid #ffc107; border-radius: .375rem; padding: 1rem 1.2rem; margin: 1rem 0; }
+    .code-badge { background: #e8f5e9; color: #1b5e20; padding: .25rem .5rem; border-radius: .25rem; font-family: monospace; font-size: 0.85rem; }
+    table td, table th { vertical-align: middle; font-size: 0.9rem; }
+    footer { background: #212529; color: #adb5bd; padding: 2rem 0; margin-top: 3rem; }
+    .accordion-button:not(.collapsed) { background-color: #e8f5e9; color: #0f5132; }
+    pre { background: #f5f5f5; border: 1px solid #ddd; border-radius: .375rem; padding: 1rem; overflow-x: auto; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+
+<!-- Hero -->
+<header class="hero text-white py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-9">
+        <h1 class="display-5 fw-bold mb-2">Faculty Tasks</h1>
+        <p class="lead mb-3">Documentación Técnica — Análisis técnico exhaustivo</p>
+        <div class="d-flex flex-wrap gap-2">
+          <span class="badge text-bg-light text-dark">SPFx 1.21.1</span>
+          <span class="badge text-bg-light text-dark">React 17</span>
+          <span class="badge text-bg-light text-dark">Zustand</span>
+          <span class="badge text-bg-light text-dark">Fluent UI 8</span>
+          <span class="badge text-bg-light text-dark">HashRouter v6</span>
+        </div>
+      </div>
+      <div class="col-lg-3 text-end d-none d-lg-block">
+        <div class="display-1 opacity-25">⚙️</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Navegación sticky -->
+<nav class="sticky-nav">
+  <div class="container">
+    <ul class="nav nav-pills flex-wrap gap-2">
+      <li class="nav-item"><a class="nav-link" href="#identificacion">Identificación</a></li>
+      <li class="nav-item"><a class="nav-link" href="#stack">Stack</a></li>
+      <li class="nav-item"><a class="nav-link" href="#lifecycle">Lifecycle</a></li>
+      <li class="nav-item"><a class="nav-link" href="#routing">Routing</a></li>
+      <li class="nav-item"><a class="nav-link" href="#estado">Estado</a></li>
+      <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+      <li class="nav-item"><a class="nav-link" href="#tipos">Tipos</a></li>
+      <li class="nav-item"><a class="nav-link" href="#config">Configuración</a></li>
+      <li class="nav-item"><a class="nav-link" href="#riesgos">Riesgos</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="container py-5">
+
+  <!-- Identificación -->
+  <section id="identificacion">
+    <h2 class="section-title">Identificación del componente</h2>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <tbody>
+          <tr><th scope="row">Nombre WebPart</th><td><span class="code-badge">FacultyTasksWebPart</span></td></tr>
+          <tr><th scope="row">ID de manifest</th><td><code>809de794-ce35-44f7-b6f7-b45f145c15ba</code></td></tr>
+          <tr><th scope="row">Versión SPFx</th><td><strong>1.21.1</strong></td></tr>
+          <tr><th scope="row">skipFeatureDeployment</th><td>true</td></tr>
+          <tr><th scope="row">isDomainIsolated</th><td>false</td></tr>
+          <tr><th scope="row">supportedHosts</th><td><span class="text-danger">[] (NO DECLARADO)</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-2"><strong>⚠️ Implicación:</strong> La ausencia de hosts declarados significa que la compatibilidad con SharePoint Online y Teams se gestiona en tiempo de ejecución mediante detección del contexto <span class="code-badge">sdks.microsoftTeams</span>.</p>
+  </section>
+
+  <!-- Stack -->
+  <section id="stack">
+    <h2 class="section-title">Stack tecnológico</h2>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+          <tr><th>Tecnología</th><th>Versión</th><th>Uso</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>SPFx</strong></td><td>1.21.1</td><td>Framework base</td></tr>
+          <tr><td><strong>React</strong></td><td>17.0.1</td><td>Capa de presentación</td></tr>
+          <tr><td><strong>Fluent UI</strong></td><td>8.x</td><td>Componentes de UI</td></tr>
+          <tr><td><strong>Zustand</strong></td><td>—</td><td>Gestión estado global y de dominio</td></tr>
+          <tr><td><strong>react-router-dom</strong></td><td>v6</td><td>Enrutado con HashRouter</td></tr>
+          <tr><td><strong>dayjs</strong></td><td>—</td><td>Cálculo semanas ISO (isoWeek plugin)</td></tr>
+          <tr><td><strong>Microsoft Graph SDK</strong></td><td>vía MSGraphClientFactory</td><td>Consultas a Graph</td></tr>
+          <tr><td><strong>SPHttpClient / AadHttpClient</strong></td><td>SPFx</td><td>HTTP autenticado al backend</td></tr>
+          <tr><td><strong>Teams JS SDK</strong></td><td>v2</td><td>Contexto e inicialización Teams</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="subsection-title">Estructura de carpetas</h3>
+    <pre>src/
+├── webparts/facultyTasks/
+│   ├── FacultyTasksWebPart.ts          ← Clase principal
+│   ├── FacultyTasksWebPart.manifest.json
+│   └── components/
+│       └── FacultyTasks.tsx            ← Root React
+├── services/
+│   ├── FacultyTasksService.ts          ← 21 métodos de negocio
+│   └── GraphService.ts                 ← 3 métodos Graph
+├── store/
+│   ├── useAppStore.ts                  ← Estado global
+│   ├── useTasksStore.ts                ← Estado Tasks
+│   └── useAdminPlanningStore.ts        ← Estado Admin
+├── hooks/
+│   ├── useInitializeUser.ts            ← Inicialización roles
+│   ├── useMyAssignments.ts             ← Lógica asignaciones
+│   └── useWeeklyAvailability.ts        ← Lógica disponibilidad
+├── types/                              ← Tipos internos y DTOs
+└── utils/
+    ├── Constants.ts                    ← Rutas y endpoints</pre>
+  </section>
+
+  <!-- Lifecycle -->
+  <section id="lifecycle">
+    <h2 class="section-title">Ciclo de vida del WebPart</h2>
+
+    <div class="accordion" id="accLifecycle">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#lc-onInit">
+            onInit() — Inicialización crítica
+          </button>
+        </h2>
+        <div id="lc-onInit" class="accordion-collapse collapse show" data-bs-parent="#accLifecycle">
+          <div class="accordion-body small">
+            <p><strong>Responsabilidades:</strong></p>
+            <ol class="mb-2">
+              <li>Lee <span class="code-badge">this.context.pageContext.user.loginName</span>, cultura, web URL, <span class="code-badge">MSGraphClientFactory</span>, <span class="code-badge">SPHttpClient</span>.</li>
+              <li>Evalúa <span class="code-badge">this.context.sdks.microsoftTeams</span> para detectar contexto Teams.</li>
+              <li>Inicializa Teams SDK si está disponible: <span class="code-badge">microsoftTeams.app.initialize()</span>.</li>
+              <li>Persiste el <span class="code-badge">serviceScope</span> completo en <span class="code-badge">useAppStore</span> para consumo de servicios desde cualquier punto.</li>
+            </ol>
+            <p class="mb-0"><strong>Impacto:</strong> Sin onInit correcto, los servicios no pueden acceder a las dependencias SPFx y la app falla.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#lc-render">
+            render() — Montaje de React
+          </button>
+        </h2>
+        <div id="lc-render" class="accordion-collapse collapse" data-bs-parent="#accLifecycle">
+          <div class="accordion-body small">
+            Monta el árbol React completo en <span class="code-badge">this.domElement</span> usando <span class="code-badge">ReactDom.render()</span>. El componente raíz es <span class="code-badge">FacultyTasks</span>, que recibe todo el estado desde los stores Zustand.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#lc-theme">
+            onThemeChanged() — Tema semántico
+          </button>
+        </h2>
+        <div id="lc-theme" class="accordion-collapse collapse" data-bs-parent="#accLifecycle">
+          <div class="accordion-body small">
+            Recibe el objeto de tema del host (SharePoint o Teams) y propaga las variables CSS semánticas sobre el <span class="code-badge">domElement</span>. Garantiza que Fluent UI adapte colores automáticamente.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#lc-dispose">
+            onDispose() / getPropertyPaneConfiguration()
+          </button>
+        </h2>
+        <div id="lc-dispose" class="accordion-collapse collapse" data-bs-parent="#accLifecycle">
+          <div class="accordion-body small">
+            <p><strong>onDispose:</strong> Desmonta React limpiamente con <span class="code-badge">ReactDom.unmountComponentAtNode()</span>.</p>
+            <p class="mb-0"><strong>getPropertyPaneConfiguration:</strong> En versión actual no expone campos funcionales. Configuración se realiza vía <span class="code-badge">appSettings</span> compilado.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Routing -->
+  <section id="routing">
+    <h2 class="section-title">Enrutado y control de acceso</h2>
+
+    <h3 class="subsection-title">Tabla de rutas</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-sm">
+        <thead class="table-dark">
+          <tr><th>Ruta</th><th>Componente</th><th>Guard</th><th>Roles</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>/</code></td><td>DefaultRedirect</td><td>—</td><td>Todos (redirige por rol)</td></tr>
+          <tr><td><code>/planning/*</code></td><td>Planning</td><td>ProtectedRoute</td><td>user</td></tr>
+          <tr><td><code>/planning/myavailability</code></td><td>MyAvailability</td><td>ProtectedRoute</td><td>user</td></tr>
+          <tr><td><code>/planning/myassignments</code></td><td>MyAssignments</td><td>ProtectedRoute</td><td>user</td></tr>
+          <tr><td><code>/tasks/*</code></td><td>Tasks</td><td>ProtectedRoute</td><td>taskUser</td></tr>
+          <tr><td><code>/admin/*</code></td><td>Admin</td><td>ProtectedRoute</td><td>admin</td></tr>
+          <tr><td><code>/no-access</code></td><td>NoAccess</td><td>—</td><td>Todos</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="highlight-box">
+      <strong>HashRouter:</strong> Las rutas usan <code>#</code> porque SPFx no puede modificar la URL real de la página (controlada por SharePoint).
+    </div>
+
+    <h3 class="subsection-title">Lógica de DefaultRedirect</h3>
+    <ul>
+      <li>Si <span class="code-badge">isUser</span> → <code>/planning/myavailability</code></li>
+      <li>Si solo <span class="code-badge">isTaskUser</span> → <code>/tasks/mypendingtasks</code></li>
+      <li>Si solo <span class="code-badge">isAdmin</span> → <code>/admin/adminplanning</code></li>
+      <li>Si ninguno → <code>/no-access</code></li>
+    </ul>
+  </section>
+
+  <!-- Estado -->
+  <section id="estado">
+    <h2 class="section-title">Gestión de estado (Zustand)</h2>
+
+    <h3 class="subsection-title">useAppStore — Estado global</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-sm">
+        <thead class="table-dark">
+          <tr><th>Campo</th><th>Tipo</th><th>Descripción</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="code-badge">serviceScope</span></td><td>ServiceScope</td><td>Scope SPFx para consumir servicios</td></tr>
+          <tr><td><span class="code-badge">msGraphClientFactory</span></td><td>MSGraphClientFactory</td><td>Factoría de clientes Graph</td></tr>
+          <tr><td><span class="code-badge">spHttpClient</span></td><td>SPHttpClient</td><td>Cliente HTTP SPFx</td></tr>
+          <tr><td><span class="code-badge">hasTeamsContext</span></td><td>boolean</td><td>¿App en Teams?</td></tr>
+          <tr><td><span class="code-badge">userId</span></td><td>string</td><td>Login del usuario autenticado</td></tr>
+          <tr><td><span class="code-badge">isAdmin</span></td><td>boolean</td><td>Usuario en grupo admin</td></tr>
+          <tr><td><span class="code-badge">isUser</span></td><td>boolean</td><td>Usuario en grupo planificación</td></tr>
+          <tr><td><span class="code-badge">isTaskUser</span></td><td>boolean</td><td>Usuario en grupo tareas</td></tr>
+          <tr><td><span class="code-badge">isLoading</span></td><td>boolean</td><td>Carga de roles en curso</td></tr>
+          <tr><td><span class="code-badge">hasUnsavedChanges</span></td><td>boolean</td><td>Cambios sin guardar</td></tr>
+          <tr><td><span class="code-badge">currentOperation</span></td><td>Operations | null</td><td>Operación en curso</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="subsection-title">useTasksStore — Tareas</h3>
+    <ul>
+      <li><span class="code-badge">tasks</span>: Array de tareas del usuario</li>
+      <li><span class="code-badge">isLoaded</span>: Flag de carga completada</li>
+      <li><span class="code-badge">loadTasks()</span>: Carga tareas, mapea TaskDTO → Task</li>
+      <li><strong>Enriquecimiento progresivo:</strong> Tras cargar, para cada tarea llama a GraphService para obtener nombre/foto del supervisor. Las tareas se muestran primero sin foto, se actualizan conforme Graph responde</li>
+      <li><strong>Ordenación:</strong> Por <span class="code-badge">dueDate</span> ascendente (más urgentes primero)</li>
+    </ul>
+
+    <h3 class="subsection-title">useAdminPlanningStore — Administración</h3>
+    <ul>
+      <li><span class="code-badge">periods</span>: Array de períodos cargados</li>
+      <li><span class="code-badge">selectedPeriods</span>: Período seleccionado (single selection)</li>
+      <li><span class="code-badge">isModalOpen_*</span>: Controla visibilidad de 5 modales/diálogos</li>
+      <li><strong>Métodos CRUD:</strong> <span class="code-badge">loadPeriods()</span>, <span class="code-badge">createPeriod()</span>, <span class="code-badge">updatePeriod()</span>, <span class="code-badge">deletePeriod()</span></li>
+    </ul>
+  </section>
+
+  <!-- Servicios -->
+  <section id="servicios">
+    <h2 class="section-title">FacultyTasksService — 21 métodos HTTP</h2>
+    <p>Encapsula todas las comunicaciones con el backend REST. Utiliza <span class="code-badge">AadHttpClient</span> en producción (autenticado), <span class="code-badge">HttpClient</span> estándar en local (flag Local de appSettings).</p>
+
+    <h3 class="subsection-title">Métodos de disponibilidad (profesor)</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-sm">
+        <thead class="table-dark">
+          <tr><th>Método</th><th>HTTP</th><th>Endpoint</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="code-badge">getMyAvailability()</span></td><td>GET</td><td>/api/Availabilities/my-availabities-by-period/{periodId}</td></tr>
+          <tr><td><span class="code-badge">updateMyAvailability()</span></td><td>PUT</td><td>/api/Availabilities/update-status</td></tr>
+          <tr><td><span class="code-badge">getPeriodsForAvailability()</span></td><td>GET</td><td>/api/Periods/for-availability</td></tr>
+          <tr><td><span class="code-badge">checkIsAllAvailable()</span></td><td>GET</td><td>/api/Availabilities/check-all-available/{periodId}</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="subsection-title">Métodos de asignaciones (profesor)</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-sm">
+        <thead class="table-dark">
+          <tr><th>Método</th><th>HTTP</th><th>Endpoint</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="code-badge">getPeriodsForAssignment()</span></td><td>GET</td><td>/api/Periods/for-assignments</td></tr>
+          <tr><td><span class="code-badge">getMyAssignments()</span></td><td>GET</td><td>/api/Assignments/my-assignments-by-period/{periodId}</td></tr>
+          <tr><td><span class="code-badge">acceptMyAssignment()</span></td><td>PUT</td><td>/api/Assignments/accept-assignment/{assignmentId}</td></tr>
+          <tr><td><span class="code-badge">rejectMyAssignment()</span></td><td>PUT</td><td>/api/Assignments/reject-assignment/{assignmentId}</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="subsection-title">Métodos de períodos (admin)</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-sm">
+        <thead class="table-dark">
+          <tr><th>Método</th><th>HTTP</th><th>Endpoint</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="code-badge">getPeriods()</span></td><td>GET</td><td>/api/Periods</td></tr>
+          <tr><td><span class="code-badge">createPeriod()</span></td><td>POST</td><td>/api/Periods</td></tr>
+          <tr><td><span class="code-badge">updatePeriod()</span></td><td>PUT</td><td>/api/Periods/{periodId}</td></tr>
+          <tr><td><span class="code-badge">deletePeriod()</span></td><td>DELETE</td><td>/api/Periods/{periodId}</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="subsection-title">Métodos de tareas</h3>
+    <ul>
+      <li><span class="code-badge">getMyTasks()</span> — GET /api/Tasks/my-tasks</li>
+    </ul>
+
+    <h3 class="subsection-title">Métodos admin (disponibilidad y asignaciones)</h3>
+    <ul>
+      <li>getUniqueUsersByPeriod_Availability, getUsersWithAvailability, exportAvailabilitiesByUserAndPeriod, exportAvailabilitiesByPeriod</li>
+      <li>getUniqueUsersByPeriod_Assignments, getUsersWithAssignment, exportAssignmentsByUserAndPeriod, exportAssignmentsByPeriod</li>
+    </ul>
+
+    <h3 class="subsection-title">GraphService — 3 métodos</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-sm">
+        <thead class="table-dark">
+          <tr><th>Método</th><th>Endpoint Graph</th><th>Descripción</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="code-badge">checkGroups()</span></td><td>POST /me/checkMemberGroups</td><td>Verifica pertenencia a grupos configurados</td></tr>
+          <tr><td><span class="code-badge">getUserByEmail()</span></td><td>GET /users/{email}</td><td>Obtiene datos básicos de usuario (nombre)</td></tr>
+          <tr><td><span class="code-badge">getUserPhotoByEmail()</span></td><td>GET /users/{email}/photo/$value</td><td>Obtiene foto de perfil como blob</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Tipos -->
+  <section id="tipos">
+    <h2 class="section-title">Modelo de tipos y DTOs</h2>
+
+    <h3 class="subsection-title">Tipos internos (dominio)</h3>
+    <ul>
+      <li><strong>Period:</strong> Período académico con fechas convertidas a <span class="code-badge">Date</span>, parámetros de planificación, array de festivos</li>
+      <li><strong>Availability:</strong> Agregación de disponibilidades de usuario por período. Contiene array de fechas con <span class="code-badge">status</span> (AvailabilityStatus enum) y número de semana ISO</li>
+      <li><strong>Assignment:</strong> Asignación docente con <span class="code-badge">status</span> (pending/accepted/rejected), <span class="code-badge">compatibilityStatus</span> (compatible/conflicted/unknown) y datos completos de la asignación</li>
+      <li><strong>Task:</strong> Tarea operativa con tipo, descripción, estado (0=pending, 1=completed, 2=expired), URL, fecha límite, supervisor e <span class="code-badge">imageUrl</span> (enriquecida progresivamente)</li>
+    </ul>
+
+    <h3 class="subsection-title">DTOs del backend</h3>
+    <p>Representan exactamente el contrato JSON devuelto por el backend. Diferencias clave respecto a tipos internos:</p>
+    <ul>
+      <li>Fechas en DTOs: strings ISO → convertidas a <span class="code-badge">Date</span> en tipos internos</li>
+      <li>Status numéricos en DTOs → mapeados a enums de string en tipos internos</li>
+      <li><span class="code-badge">PeriodDTO</span> incluye <span class="code-badge">hoursPerDay</span> y <span class="code-badge">gapsCoefficient</span>; <span class="code-badge">UserPeriodDTO</span> para profesor no necesita estos campos</li>
+    </ul>
+  </section>
+
+  <!-- Configuración -->
+  <section id="config">
+    <h2 class="section-title">Configuración de despliegue</h2>
+
+    <h3 class="subsection-title">appSettings — Inyección en tiempo de ejecución</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-sm">
+        <thead class="table-dark">
+          <tr><th>Campo</th><th>Valor actual</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="code-badge">FacultyTasksAPIURL</span></td><td>https://ie-fhub-dev-planni-api-svc-001.azurewebsites.net</td></tr>
+          <tr><td><span class="code-badge">Local</span></td><td>false (producción)</td></tr>
+          <tr><td><span class="code-badge">AzureAd.ApplicationUri</span></td><td>api://c051e93e-10bb-4416-a05d-651ac7dd44f9</td></tr>
+          <tr><td><span class="code-badge">AdminGroupId</span></td><td>e1b2f3a2-dee7-43f2-b3fc-bd5389e438a9</td></tr>
+          <tr><td><span class="code-badge">UserGroupId</span></td><td>15362c89-cf9f-4854-8627-a26a8cf5b35d</td></tr>
+          <tr><td><span class="code-badge">TaskUserGroupId</span></td><td>15362c89-cf9f-4854-8627-a26a8cf5b35d <span class="text-danger">← IGUAL A UserGroupId</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="warning-box">
+      <strong>🔴 Observación crítica:</strong> <span class="code-badge">UserGroupId</span> y <span class="code-badge">TaskUserGroupId</span> comparten el mismo GUID. Esto significa que en la práctica ambos roles se otorgan simultáneamente a las mismas personas. Si la intención es separar, requiere revisión con administración del tenant.
+    </div>
+
+    <h3 class="subsection-title">Permisos en package-solution</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-sm">
+        <thead class="table-dark">
+          <tr><th>Recurso</th><th>Scope</th><th>Justificación</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Microsoft Graph</td><td>Group.Read.All</td><td>POST /me/checkMemberGroups (verificación de grupos)</td></tr>
+          <tr><td>Microsoft Graph</td><td>ProfilePhoto.Read.All</td><td>GET /users/{email}/photo/$value (foto de supervisores)</td></tr>
+          <tr><td>IE-FacultyHubWebAPI-Dev</td><td>user_impersonation</td><td>AadHttpClient genera tokens en nombre del usuario</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Requisito:</strong> Todos los permisos requieren aprobación del administrador del tenant en portal de SharePoint admin antes de funcionar en producción.</p>
+  </section>
+
+  <!-- Riesgos -->
+  <section id="riesgos">
+    <h2 class="section-title">Riesgos técnicos identificados</h2>
+    <div class="accordion" id="accRiesgos">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#risk-1">
+            1. UserGroupId = TaskUserGroupId
+          </button>
+        </h2>
+        <div id="risk-1" class="accordion-collapse collapse show" data-bs-parent="#accRiesgos">
+          <div class="accordion-body small">
+            <p><strong>Descripción:</strong> Ambos roles comparten GUID en appSettings.</p>
+            <p><strong>Impacto:</strong> Imposibilidad de tener usuarios solo con rol taskUser sin también tener rol user.</p>
+            <p class="mb-0"><strong>Mitigación:</strong> Revisar con administrador del tenant si la separación de grupos es necesaria. Si sí, crear grupo distinto y actualizar GUID en appSettings.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#risk-2">
+            2. supportedHosts vacío en manifest
+          </button>
+        </h2>
+        <div id="risk-2" class="accordion-collapse collapse" data-bs-parent="#accRiesgos">
+          <div class="accordion-body small">
+            <p><strong>Descripción:</strong> WebPart no declara hosts objetivo en el manifest.</p>
+            <p><strong>Impacto:</strong> Posibles problemas de visibilidad o publicación en entornos específicos.</p>
+            <p class="mb-0"><strong>Mitigación:</strong> Declarar explícitamente <code>["SharePointWebPart", "TeamsPersonalApp", "TeamsTab"]</code> según entorno objetivo.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#risk-3">
+            3. Sin modelo de error unificado en UI
+          </button>
+        </h2>
+        <div id="risk-3" class="accordion-collapse collapse" data-bs-parent="#accRiesgos">
+          <div class="accordion-body small">
+            <p><strong>Descripción:</strong> Servicios devuelven <span class="code-badge">undefined</span> o <span class="code-badge">false</span> en error; sin componente genérico de error.</p>
+            <p><strong>Impacto:</strong> Usuario puede ver pantallas vacías sin explicación si API falla.</p>
+            <p class="mb-0"><strong>Mitigación:</strong> Implementar React Error Boundary y mensajes de feedback al usuario.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#risk-4">
+            4. Contrato OpenAPI del backend NO PROPORCIONADO
+          </button>
+        </h2>
+        <div id="risk-4" class="accordion-collapse collapse" data-bs-parent="#accRiesgos">
+          <div class="accordion-body small">
+            <p><strong>Descripción:</strong> DTOs del frontend son inferidos del consumo observado.</p>
+            <p><strong>Impacto:</strong> Si backend cambia un campo, frontend puede fallar silenciosamente.</p>
+            <p class="mb-0"><strong>Mitigación:</strong> Generar y versionar contrato OpenAPI del backend, usarlo como fuente de tipos.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#risk-5">
+            5. Sin política de reintentos HTTP
+          </button>
+        </h2>
+        <div id="risk-5" class="accordion-collapse collapse" data-bs-parent="#accRiesgos">
+          <div class="accordion-body small">
+            <p><strong>Descripción:</strong> Llamadas al backend no implementan reintentos en error transitorio.</p>
+            <p><strong>Impacto:</strong> Error de red puntual puede dejar app en estado de carga fallida.</p>
+            <p class="mb-0"><strong>Mitigación:</strong> Implementar reintentos con backoff exponencial para llamadas GET no críticas.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#risk-6">
+            6. Rutas parcialmente implementadas
+          </button>
+        </h2>
+        <div id="risk-6" class="accordion-collapse collapse" data-bs-parent="#accRiesgos">
+          <div class="accordion-body small">
+            <p><strong>Descripción:</strong> Paths para MySessions, Requests, Evaluations definidos en Constants pero sin componentes activos.</p>
+            <p><strong>Impacto:</strong> Deep links a estas rutas no funcionarán hasta activación.</p>
+            <p class="mb-0"><strong>Mitigación:</strong> Eliminar constantes de rutas no activas u añadir componente placeholder que informe al usuario.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <small>Faculty Tasks — Documentación Técnica</small><br>
+        <small class="text-muted">Generado: 2026-04-28</small>
+      </div>
+      <div class="col-md-6 text-end">
+        <small class="text-muted">SPFx 1.21.1 · React 17 · Zustand · HashRouter v6</small>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

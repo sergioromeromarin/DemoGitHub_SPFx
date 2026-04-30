@@ -1,0 +1,97 @@
+@import '~@fluentui/react/dist/sass/References.scss';
+@import 'src/styles/Mixins.module.scss';
+
+.availabilityTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    table-layout: fixed;
+
+    @include media(xs) {
+        table-layout: auto;
+        font-size: 0.8rem;
+    }
+
+    @include media(sm) {
+        table-layout: auto;
+        font-size: 0.8rem;
+    }
+}
+
+.availabilityTable th {
+    padding: 8px;
+    background-color: #f5f6fa;
+    color: #003366;
+    font-weight: bold;
+
+    @include media(xs) {
+        padding: 0px;
+    }
+
+    @include media(sm) {
+        padding: 0px;
+    }
+
+    .dayHeader {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+
+        @include media(xs) {
+            flex-direction: column;
+        }
+
+        @include media(sm) {
+            flex-direction: column;
+        }
+    }
+}
+
+.availabilityTable td {
+    border: 1px solid #ddd;
+    height: 40px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    background-color: aliceblue;
+}
+
+.hourCell {
+    background-color: #fafafa !important;
+    color: #003366;
+    font-weight: 500;
+    cursor: default !important;
+}
+
+.cell.preferred {
+    background-color: #d7f5d0;
+    color: #007a00;
+}
+
+.cell.blocked {
+    background-color: #f8d7da;
+    color: #c00;
+}
+
+.cell:hover {
+    opacity: 0.8;
+}
+
+.cell span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.cell.empty {
+    background-color: #cfcfcf;
+    cursor: default;
+}
+
+.cell.empty:hover {
+    opacity: 1;
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed !important;
+}

@@ -1,0 +1,48 @@
+@import 'src/styles/Mixins.module.scss';
+
+.footer {
+    height: 50px;
+    background-color: #002166;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px 0 35px;
+
+    @include media(xs) {
+        height: 30px;
+        padding: 0 5px 0 12px;
+    }
+
+    @include media(sm) {
+        height: 30px;
+        padding: 0 5px 0 12px;
+    }
+
+    .leftSection {
+        padding-right: 3rem;
+
+        @include media(xs) {
+            padding-right: 1.4rem;
+        }
+
+        @include media(sm) {
+            padding-right: 1.4rem;
+        }
+
+        img {
+            height: 33px;
+            width: 100%;
+            object-fit: cover;
+
+            @include media(xs) {
+                height: 20px;
+            }
+
+            @include media(sm) {
+                height: 20px;
+            }
+        }
+
+    }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "faculty-tasks-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/facultyTasks/FacultyTasksWebPart.js",
+          "manifest": "./src/webparts/facultyTasks/FacultyTasksWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "FacultyTasksWebPartStrings": "lib/webparts/facultyTasks/loc/{locale}.js",
+    "appSettings": "lib/appSettings.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js"
+  }
+}

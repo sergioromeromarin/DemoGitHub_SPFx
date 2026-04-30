@@ -1,0 +1,366 @@
+@import 'src/styles/Mixins.module.scss';
+@import '../../../../../../styles/font';
+
+.tasksAdministration {
+	display: flex;
+	flex-direction: column;
+	row-gap: 18px;
+	padding: 1.2rem 2rem;
+	color: "[theme:bodyText, default: #323130]";
+	color: var(--bodyText);
+
+	@include media(xs) {
+		padding: 0.8rem;
+	}
+
+	@include media(sm) {
+		padding: 0.8rem;
+	}
+
+	h1 {
+		text-transform: uppercase;
+		font-size: 38px;
+		line-height: 1.05;
+		font-weight: 800;
+		letter-spacing: 0.2px;
+		margin: 0;
+		color: var(--bodyText);
+		font-family: 'Montserrat', sans-serif;
+
+		@include media(xs) {
+			font-size: 2rem;
+			line-height: 2.4rem;
+		}
+
+		@include media(sm) {
+			font-size: 2rem;
+			line-height: 2.4rem;
+		}
+	}
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	flex: 1;
+	min-height: 0;
+}
+
+.searchCard,
+.personCard,
+.tasksCard {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.searchHeader {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.subtitle {
+	margin: 0;
+	font-size: 15px;
+	line-height: 1.2;
+	font-weight: 400;
+	letter-spacing: 0.2px;
+	color: var(--bodyText);
+	opacity: 0.8;
+	text-transform: uppercase;
+	padding: 6px 0;
+}
+
+.peoplePickerWrapper {
+	width: 100%;
+
+	:global {
+		.ms-BasePicker-text {
+			border: 1px solid #c8c6c4;
+			border-radius: 9999px;
+			min-height: 40px;
+			padding: 6px 12px;
+			display: flex;
+			align-items: center;
+			box-sizing: border-box;
+			outline: none !important;
+			box-shadow: none !important;
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		.ms-BasePicker-text::after {
+			border: 0 !important;
+			box-shadow: none !important;
+		}
+
+		.ms-BasePicker-text:hover {
+			border-color: #c8c6c4;
+		}
+
+		.ms-BasePicker-text:focus-within {
+			border-color: #c8c6c4;
+			outline: none !important;
+			box-shadow: none !important;
+		}
+
+		.ms-BasePicker-text:focus-within::after {
+			border: 0 !important;
+			box-shadow: none !important;
+		}
+
+		.ms-BasePicker-input {
+			font-size: 14px;
+			outline: none !important;
+			box-shadow: none !important;
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		.ms-BasePicker-input:focus {
+			outline: none !important;
+			box-shadow: none !important;
+		}
+
+		.ms-TextField-fieldGroup::after {
+			border: 0 !important;
+			box-shadow: none !important;
+		}
+
+		.ms-BasePicker {
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		.ms-PeoplePicker {
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		.ms-Label {
+			font-family: 'Montserrat', sans-serif;
+		}
+	}
+}
+
+.personRow {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 6px 0;
+	justify-content: flex-start;
+}
+
+.personNameRow {
+	display: flex;
+	align-items: center;
+	gap: 2px;
+	min-width: 0;
+	height: 37px;
+}
+
+.personActionsInline {
+	display: flex;
+	align-items: center;
+	//   gap: 4px;
+	flex-shrink: 0;
+}
+
+.chatButton {
+	flex: 0 0 auto;
+}
+
+.emptyHint {
+	font-size: 14px;
+	color: #605e5c;
+	// padding: 10px 0;
+}
+
+.tasksCard {
+	flex: 1;
+	min-height: 0;
+	gap: 12px;
+}
+
+.tasksHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-top: 6px;
+}
+
+.tasksTitle {
+	margin: 0;
+	font-size: 23px;
+	font-weight: 600;
+	letter-spacing: 0.4px;
+	color: var(--bodyText);
+	text-transform: uppercase;
+}
+
+.spinnerContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 180px;
+}
+
+.tableContainer {
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.1rem;
+	color: "[theme:bodyText, default: #323130]";
+	color: var(--bodyText);
+
+	.loading {
+		padding: 18px 0;
+	}
+
+	:global {
+		.ms-DetailsList {
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		.ms-DetailsRow-cell {
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		.ms-DetailsHeader-cellTitle {
+			font-family: 'Montserrat', sans-serif;
+		}
+	}
+
+	:global(.ms-DetailsHeader) {
+		background: #0b57d0;
+		padding-top: 0;
+	}
+
+	:global(.ms-DetailsHeader-cell) {
+		border: 0;
+	}
+
+	:global {
+		.ms-DetailsHeader {
+			background-color: #0b3ee3;
+		}
+
+		.ms-DetailsHeader-cell {
+			background-color: #0b3ee3;
+
+			&:hover {
+				background-color: #0b3ee3;
+			}
+		}
+	}
+
+	:global(.ms-DetailsHeader-cellName) {
+		color: #fff;
+		font-weight: 700;
+		letter-spacing: 0.2px;
+		text-transform: uppercase;
+		font-size: 12px;
+	}
+
+	:global(.ms-DetailsRow) {
+		border-bottom: 1px solid var(--bodyDivider);
+	}
+
+	:global(.ms-DetailsRow-cell) {
+		padding-top: 16px;
+		padding-bottom: 16px;
+		color: var(--bodyText);
+		display: flex;
+		align-items: center;
+	}
+}
+
+.taskTypeColumn {
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.statusPendingColumn {
+	text-transform: uppercase;
+	color: red;
+	font-weight: 700;
+}
+
+.statusCompletedColumn {
+	text-transform: uppercase;
+	color: green;
+	font-weight: 700;
+}
+
+.personInfo {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	min-width: 0;
+	flex: 1;
+}
+
+.personPhoto {
+	width: 44px;
+	height: 44px;
+	border-radius: 9999px;
+	object-fit: cover;
+	flex: 0 0 auto;
+}
+
+.personPhotoFallback {
+	width: 44px;
+	height: 44px;
+	border-radius: 9999px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 800;
+	background: var(--bodyDivider);
+	color: var(--bodyText);
+	flex: 0 0 auto;
+}
+
+.personText {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	flex: 1;
+}
+
+.personName {
+	min-width: 0;
+	font-size: 16px;
+	font-weight: 700;
+	color: var(--bodyText);
+	line-height: 1.15;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.personEmail {
+	font-size: 13px;
+	color: var(--bodyText);
+	text-decoration: none;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	// &:hover {
+	// 	text-decoration: underline;
+	// }
+}
+
+.personActions {
+	display: flex;
+	align-items: center;
+	// gap: 6px;
+	flex: 0 0 auto;
+	flex-shrink: 0;
+}
+
+.actionButton {
+	flex: 0 0 auto;
+}
+
+.chatButton {
+	margin-left: -7px;
+}

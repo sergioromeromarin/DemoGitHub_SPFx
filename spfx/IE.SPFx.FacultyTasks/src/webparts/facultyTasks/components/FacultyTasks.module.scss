@@ -1,0 +1,15 @@
+@import '~@fluentui/react/dist/sass/References.scss';
+@import '../../../styles/font';
+
+.facultyTasksContainer {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.pageContent {
+  // padding: 2rem;
+  min-height: 80vh;
+}
+
+.page {
+  padding: 2rem;
+}

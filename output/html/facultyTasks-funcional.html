@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faculty Tasks — Documentación Funcional</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body { font-size: 1.02rem; color: #212529; line-height: 1.6; }
+    .hero { background: linear-gradient(135deg, #0078d4 0%, #005a9e 100%); }
+    .section-title { border-left: 4px solid #0078d4; padding-left: .75rem; margin-top: 2.5rem; margin-bottom: 1.2rem; font-weight: 600; }
+    .subsection-title { border-left: 3px solid #6ea8fe; padding-left: .6rem; margin-top: 1.8rem; margin-bottom: 1rem; color: #0c5cba; font-weight: 500; }
+    .nav-pills .nav-link { font-size: .9rem; color: #495057; }
+    .nav-pills .nav-link.active { background-color: #0078d4; }
+    .sticky-nav { position: sticky; top: 0; z-index: 1000; background: #fff; border-bottom: 1px solid #dee2e6; padding: .75rem 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .card-feature { border-left: 4px solid #0078d4; }
+    .card-admin { border-left: 4px solid #198754; }
+    .card-tasks { border-left: 4px solid #ffc107; }
+    .highlight-box { background: #f0f7ff; border: 1px solid #b6d4fe; border-radius: .375rem; padding: 1.1rem 1.3rem; margin: 1rem 0; }
+    .warning-box { background: #fff8e6; border: 1px solid #ffc107; border-radius: .375rem; padding: 1rem 1.2rem; margin: 1rem 0; }
+    table td, table th { vertical-align: middle; }
+    footer { background: #212529; color: #adb5bd; padding: 2rem 0; margin-top: 3rem; }
+    .accordion-button:not(.collapsed) { background-color: #e7f1ff; color: #0c5cba; }
+    .badge { font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+
+<!-- Hero -->
+<header class="hero text-white py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-9">
+        <h1 class="display-5 fw-bold mb-2">Faculty Tasks</h1>
+        <p class="lead mb-3">Documentación Funcional — Análisis exhaustivo de negocio</p>
+        <div class="d-flex flex-wrap gap-2">
+          <span class="badge text-bg-light text-dark">SPFx 1.21.1</span>
+          <span class="badge text-bg-light text-dark">WebPart</span>
+          <span class="badge text-bg-light text-dark">SharePoint Online</span>
+          <span class="badge text-bg-light text-dark">Microsoft Teams</span>
+          <span class="badge text-bg-warning text-dark">Gestión docente</span>
+        </div>
+      </div>
+      <div class="col-lg-3 text-end d-none d-lg-block">
+        <div class="display-1 opacity-25">📚</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Navegación sticky -->
+<nav class="sticky-nav">
+  <div class="container">
+    <ul class="nav nav-pills flex-wrap gap-2">
+      <li class="nav-item"><a class="nav-link" href="#que-es">¿Qué es?</a></li>
+      <li class="nav-item"><a class="nav-link" href="#usuarios">Usuarios</a></li>
+      <li class="nav-item"><a class="nav-link" href="#ciclo-vida">Ciclo académico</a></li>
+      <li class="nav-item"><a class="nav-link" href="#disponibilidad">Disponibilidad</a></li>
+      <li class="nav-item"><a class="nav-link" href="#asignaciones">Asignaciones</a></li>
+      <li class="nav-item"><a class="nav-link" href="#tareas">Tareas</a></li>
+      <li class="nav-item"><a class="nav-link" href="#administracion">Administración</a></li>
+      <li class="nav-item"><a class="nav-link" href="#teams">Teams</a></li>
+      <li class="nav-item"><a class="nav-link" href="#seguridad">Seguridad</a></li>
+      <li class="nav-item"><a class="nav-link" href="#futuro">Futuro</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="container py-5">
+
+  <!-- ¿Qué es? -->
+  <section id="que-es">
+    <h2 class="section-title">¿Qué es Faculty Tasks?</h2>
+    <div class="highlight-box">
+      <p class="mb-2"><strong>Faculty Tasks</strong> es una aplicación digital integrada en el entorno Microsoft 365 de la institución educativa que centraliza en un único lugar las tres grandes necesidades operativas del profesorado en relación con su actividad docente:</p>
+      <ul class="mb-0">
+        <li>La <strong>planificación de la disponibilidad</strong> para impartir clases en cada período académico.</li>
+        <li>La <strong>revisión y confirmación de asignaciones</strong> de docencia propuestas por la institución.</li>
+        <li>El <strong>seguimiento de tareas pendientes</strong> encomendadas al profesor con fecha límite.</li>
+      </ul>
+    </div>
+    <p>La aplicación vive dentro de SharePoint y también puede utilizarse directamente desde Microsoft Teams, permitiendo al profesor acceder a toda su información docente sin cambiar de plataforma ni abrir herramientas externas.</p>
+    <p>El propósito central es eliminar la dispersión de información y la dependencia de correos electrónicos para gestionar la participación del profesorado en los períodos académicos. Con Faculty Tasks, toda la interacción entre la institución y el cuerpo docente queda registrada digitalmente, con trazabilidad completa y en tiempo real.</p>
+
+    <div class="row g-4 mt-3">
+      <div class="col-md-4">
+        <div class="card h-100 card-feature">
+          <div class="card-body">
+            <h5 class="card-title">🗓️ Planificación</h5>
+            <p class="card-text small">El profesor declara su disponibilidad semanal y revisa las asignaciones docentes que le propone la institución para cada período.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 card-tasks">
+          <div class="card-body">
+            <h5 class="card-title">✅ Tareas</h5>
+            <p class="card-text small">El profesor ve sus compromisos operativos pendientes ordenados por urgencia, con acceso directo a cada recurso.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 card-admin">
+          <div class="card-body">
+            <h5 class="card-title">⚙️ Administración</h5>
+            <p class="card-text small">El coordinador gestiona períodos académicos y supervisa de forma agregada la disponibilidad y asignaciones del claustro.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Usuarios -->
+  <section id="usuarios">
+    <h2 class="section-title">¿Quiénes utilizan esta aplicación?</h2>
+    <p>La aplicación distingue tres tipos de usuario, cada uno con acceso y capacidades específicas. El tipo se determina automáticamente por pertenencia a grupos del directorio corporativo.</p>
+
+    <div class="accordion mt-3" id="accUsuarios">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#usu-admin">
+            🛡️ El coordinador o administrador
+          </button>
+        </h2>
+        <div id="usu-admin" class="accordion-collapse collapse show" data-bs-parent="#accUsuarios">
+          <div class="accordion-body">
+            <p>Responsable de la planificación institucional. Configura y gestiona los períodos académicos, supervisa de forma agregada la disponibilidad y asignaciones del claustro docente.</p>
+            <p>Puede crear, editar y eliminar períodos; acceder a vistas de disponibilidad y asignaciones de todos los profesores; exportar datos a nivel individual o de período completo.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#usu-planning">
+            📋 El profesor de planificación
+          </button>
+        </h2>
+        <div id="usu-planning" class="accordion-collapse collapse" data-bs-parent="#accUsuarios">
+          <div class="accordion-body">
+            <p>Docente cuya participación en los programas requiere fase de planificación previa. Tiene acceso a dos funcionalidades: declarar disponibilidad para impartir clases y revisar/confirmar asignaciones de docencia.</p>
+            <p>Perfil más activo en interacción con la herramienta durante las fases de planificación de cada período académico.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#usu-tasks">
+            📌 El profesor de tareas
+          </button>
+        </h2>
+        <div id="usu-tasks" class="accordion-collapse collapse" data-bs-parent="#accUsuarios">
+          <div class="accordion-body">
+            <p>Docente al que se le asignan tareas operativas con fecha límite y responsable asignado. Su experiencia se centra en tener visible qué compromisos pendientes tiene, ordenados por urgencia.</p>
+            <p>Puede coexistir con el perfil anterior: un mismo profesor puede tener simultáneamente capacidades de planificación y tareas si pertenece a ambos grupos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ciclo de vida -->
+  <section id="ciclo-vida">
+    <h2 class="section-title">El ciclo de vida de un período académico</h2>
+    <p>Faculty Tasks está estructurado alrededor del concepto de <strong>período académico</strong>: un bloque de actividad docente con inicio y fin definidos. Cada período tiene una estructura de fechas que define cuándo ocurre cada fase.</p>
+
+    <div class="row g-3 mt-2">
+      <div class="col-md-6">
+        <div class="card h-100 border-primary">
+          <div class="card-header bg-primary text-white fw-semibold">Fase 1 — Configuración</div>
+          <div class="card-body small">
+            <p class="mb-1">El coordinador crea el período definiendo:</p>
+            <ul class="mb-0">
+              <li>Nombre del curso/edición</li>
+              <li>Nombre del período</li>
+              <li>Fechas de período, disponibilidad y asignaciones</li>
+              <li>Parámetros (horas/día, espaciado)</li>
+              <li>Festivos específicos</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100 border-info">
+          <div class="card-header bg-info text-white fw-semibold">Fase 2 — Recogida de disponibilidad</div>
+          <div class="card-body small">
+            <p class="mb-1">Cada profesor marca su situación para cada jornada:</p>
+            <ul class="mb-0">
+              <li><strong>Disponible:</strong> puede impartir sin objeción</li>
+              <li><strong>Preferido:</strong> prefiere activamente impartir</li>
+              <li><strong>Bloqueado:</strong> no puede impartir</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100 border-success">
+          <div class="card-header bg-success text-white fw-semibold">Fase 3 — Revisión de asignaciones</div>
+          <div class="card-body small">
+            El profesor revisa materias, programas y fechas asignadas; decide si acepta o rechaza. El sistema verifica que la disponibilidad esté completa antes de dar acceso.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100 border-warning">
+          <div class="card-header bg-warning text-dark fw-semibold">Fase 4 — Gestión de tareas</div>
+          <div class="card-body small">
+            En paralelo, profesores con tareas acceden en cualquier momento a su lista de compromisos, ven plazos y responsables, y acceden a recursos.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Disponibilidad -->
+  <section id="disponibilidad">
+    <h2 class="section-title">Módulo de Planificación — Mi Disponibilidad</h2>
+    <p>Declarar disponibilidad es el proceso por el que cada profesor indica a la institución, para cada jornada, en qué medida puede o desea impartir clases. Esta información es la materia prima del proceso de asignación docente.</p>
+
+    <h3 class="subsection-title">Los tres estados de disponibilidad</h3>
+    <div class="row g-3 mb-3">
+      <div class="col-md-4">
+        <div class="card border-success h-100">
+          <div class="card-body text-center">
+            <div class="fs-2 mb-2">🟢</div>
+            <h6 class="text-success">Disponible</h6>
+            <p class="small mb-0">Puede impartir sin objeción. Estado por defecto.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-primary h-100">
+          <div class="card-body text-center">
+            <div class="fs-2 mb-2">⭐</div>
+            <h6 class="text-primary">Preferido</h6>
+            <p class="small mb-0">Prefiere activamente impartir ese día. Sistema prioriza.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-danger h-100">
+          <div class="card-body text-center">
+            <div class="fs-2 mb-2">🔴</div>
+            <h6 class="text-danger">Bloqueado</h6>
+            <p class="small mb-0">No puede impartir. Sistema lo respeta.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">Operaciones en bloque</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-sm">
+        <thead class="table-dark">
+          <tr><th>Operación</th><th>Efecto</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Aplicar a toda la semana</td><td>Extiende a todos los días de la misma semana.</td></tr>
+          <tr><td>Aplicar a todo el mes</td><td>Extiende a todos los días del mismo mes.</td></tr>
+          <tr><td>Aplicar a todo el período</td><td>Extiende a todos los días hábiles del período.</td></tr>
+          <tr><td>Marcar semana como preferido</td><td>Acción masiva en un solo clic.</td></tr>
+          <tr><td>Marcar semana como bloqueado</td><td>Acción masiva en un solo clic.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="warning-box">
+      <strong>⚠️ Control de cambios:</strong> Si intenta navegar con cambios pendientes, la aplicación le avisa para que no pierda trabajo.
+    </div>
+  </section>
+
+  <!-- Asignaciones -->
+  <section id="asignaciones">
+    <h2 class="section-title">Módulo de Planificación — Mis Asignaciones</h2>
+    <p>Una asignación docente es la propuesta formal que hace la institución a un profesor para impartir una materia en un programa y fechas determinadas.</p>
+
+    <h3 class="subsection-title">Información en cada asignación</h3>
+    <div class="row g-2">
+      <div class="col-md-6">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Materia:</strong> la asignatura propuesta</li>
+          <li class="list-group-item"><strong>Programa:</strong> el programa académico</li>
+          <li class="list-group-item"><strong>Área académica:</strong> departamento/área de conocimiento</li>
+          <li class="list-group-item"><strong>Campus y turno:</strong> dónde y en qué franja horaria</li>
+          <li class="list-group-item"><strong>Edición (intake):</strong> promoción de estudiantes</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Fechas:</strong> inicio y fin de la docencia</li>
+          <li class="list-group-item"><strong>Sesiones asignadas:</strong> sesiones de este profesor</li>
+          <li class="list-group-item"><strong>Total sesiones:</strong> contexto completo</li>
+          <li class="list-group-item"><strong>Descripción:</strong> información adicional</li>
+          <li class="list-group-item"><strong>Estado:</strong> pendiente / aceptada / rechazada</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">Indicador de compatibilidad</h3>
+    <div class="row g-3 mt-2 mb-3">
+      <div class="col-md-4"><div class="card border-success"><div class="card-body"><h6 class="text-success">✅ Compatible</h6><p class="small mb-0">Fechas coinciden con días disponibles. Sin conflictos.</p></div></div></div>
+      <div class="col-md-4"><div class="card border-danger"><div class="card-body"><h6 class="text-danger">⚠️ Conflicto</h6><p class="small mb-0">Fechas coinciden con días bloqueados. Sistema lo detecta.</p></div></div></div>
+      <div class="col-md-4"><div class="card border-secondary"><div class="card-body"><h6 class="text-secondary">❓ Desconocido</h6><p class="small mb-0">No hay información para determinar compatibilidad.</p></div></div></div>
+    </div>
+
+    <div class="highlight-box">
+      <strong>📌 Requisito previo:</strong> Para acceder a la revisión de asignaciones, el sistema verifica automáticamente que ha completado su disponibilidad. Si no lo ha hecho, le dirige a completarla primero.
+    </div>
+  </section>
+
+  <!-- Tareas -->
+  <section id="tareas">
+    <h2 class="section-title">Módulo de Tareas — Mis Tareas Pendientes</h2>
+    <p>Una tarea es cualquier acción operativa que la institución encomienda a un profesor con fecha límite y responsable asignado: entrega de materiales, revisión de documentos, cumplimentación de formularios, etc.</p>
+
+    <h3 class="subsection-title">Campos de cada tarea</h3>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-sm">
+        <thead class="table-dark">
+          <tr><th>Campo</th><th>Descripción</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Descripción</strong></td><td>Qué se le pide exactamente.</td></tr>
+          <tr><td><strong>Tipo</strong></td><td>Categoría o naturaleza de la tarea.</td></tr>
+          <tr><td><strong>Fecha límite</strong></td><td>Plazo para completarla (base de ordenamiento).</td></tr>
+          <tr><td><strong>Estado</strong></td><td>Pendiente, completada o vencida.</td></tr>
+          <tr><td><strong>Enlace directo</strong></td><td>Acceso inmediato al recurso.</td></tr>
+          <tr><td><strong>Responsable</strong></td><td>Supervisor, con nombre y foto de perfil.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="subsection-title">Vistas de tareas</h3>
+    <div class="row g-3 mt-2">
+      <div class="col-md-6">
+        <div class="card border-info">
+          <div class="card-header bg-info text-white fw-semibold">Vista de urgencia (carrusel)</div>
+          <div class="card-body small">
+            Muestra las tareas más próximas al vencimiento en formato carrusel rotativo. El profesor ve de un vistazo sus compromisos más inmediatos.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card border-info">
+          <div class="card-header bg-info text-white fw-semibold">Lista completa</div>
+          <div class="card-body small">
+            Tabla de todas las tareas pendientes, ordenadas por fecha límite ascendente. Foto del supervisor junto a cada tarea.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Administración -->
+  <section id="administracion">
+    <h2 class="section-title">Panel de Administración — Capacidades del coordinador</h2>
+    <p>Espacio desde el que el coordinador tiene control completo sobre la estructura de períodos académicos y supervisión del colectivo docente.</p>
+
+    <div class="accordion mt-3 mb-3" id="accAdmin">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#admin-crear">
+            ➕ Crear un nuevo período
+          </button>
+        </h2>
+        <div id="admin-crear" class="accordion-collapse collapse show" data-bs-parent="#accAdmin">
+          <div class="accordion-body small">
+            <p><strong>Datos a proporcionar:</strong></p>
+            <ul class="mb-0">
+              <li>Curso o edición (ej. "MBA 2025-26")</li>
+              <li>Nombre del período (ej. "Trimestre 1")</li>
+              <li>Fechas: período, disponibilidad, asignaciones</li>
+              <li>Parámetros: horas máx/día, coeficiente espaciado</li>
+              <li>Festivos específicos de este período</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#admin-crud">
+            ✏️ Editar, eliminar, ver detalle
+          </button>
+        </h2>
+        <div id="admin-crud" class="accordion-collapse collapse" data-bs-parent="#accAdmin">
+          <div class="accordion-body small">
+            <p><strong>Edición:</strong> Modifique después de crear. Los cambios se reflejan inmediatamente.</p>
+            <p><strong>Eliminación:</strong> Retire períodos obsoletos. Operación reversible desde el sistema central.</p>
+            <p class="mb-0"><strong>Detalle:</strong> Acceda al resumen completo: fechas, parámetros, festivos, estado de recogida.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">Supervisión del claustro</h3>
+    <div class="row g-3">
+      <div class="col-md-6">
+        <div class="card border-success h-100">
+          <div class="card-header bg-success text-white fw-semibold">Disponibilidad</div>
+          <div class="card-body small">
+            Vea la disponibilidad declarada por todos, identifique quién ha completado y quién no. Búsqueda individual y exportaciones.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card border-success h-100">
+          <div class="card-header bg-success text-white fw-semibold">Asignaciones</div>
+          <div class="card-body small">
+            Vea el estado de todas (pendientes, aceptadas, rechazadas) y los motivos de rechazos. Búsqueda individual y exportaciones.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">Exportaciones disponibles</h3>
+    <div class="table-responsive mt-2">
+      <table class="table table-bordered table-hover table-sm">
+        <thead class="table-dark">
+          <tr><th>Tipo de exportación</th><th>Alcance</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Disponibilidad por período completo</td><td>Todos los profesores del período.</td></tr>
+          <tr><td>Disponibilidad de un profesor</td><td>Individual de un profesor concreto.</td></tr>
+          <tr><td>Asignaciones por período completo</td><td>Estado de todas las asignaciones.</td></tr>
+          <tr><td>Asignaciones de un profesor</td><td>Asignaciones individuales de un profesor.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Teams -->
+  <section id="teams">
+    <h2 class="section-title">Integración con Microsoft Teams</h2>
+    <div class="highlight-box">
+      <p class="mb-2">Faculty Tasks está diseñada para funcionar de forma nativa tanto en SharePoint como en Microsoft Teams. La experiencia es idéntica, pero integrada en el entorno de trabajo habitual del profesorado.</p>
+      <p class="mb-0">Soporta <strong>enlaces directos a subpáginas</strong>: si alguien comparte un enlace a una sección concreta desde Teams (p.ej. "Mis Asignaciones"), el sistema lleva al usuario directamente sin pasar por la pantalla de inicio.</p>
+    </div>
+  </section>
+
+  <!-- Seguridad -->
+  <section id="seguridad">
+    <h2 class="section-title">Control de acceso y seguridad</h2>
+    <p>El acceso a cada sección está protegido por pertenencia a grupos del directorio institucional. Este control se realiza de forma automática y transparente al usuario, sin ninguna acción por su parte.</p>
+
+    <div class="row g-3 mt-2">
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header fw-semibold">Permisos requeridos</div>
+          <div class="card-body small">
+            <ul class="mb-0">
+              <li><strong>Microsoft 365:</strong> Lectura de grupos y fotos</li>
+              <li><strong>Faculty Hub API:</strong> Acceso en nombre del usuario</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header fw-semibold">Perfiles de acceso</div>
+          <div class="card-body small">
+            <ul class="mb-0">
+              <li><strong>Admin:</strong> Panel completo</li>
+              <li><strong>Planificación:</strong> Disponibilidad y asignaciones</li>
+              <li><strong>Tareas:</strong> Tareas pendientes</li>
+              <li><strong>Sin grupo:</strong> Acceso denegado</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-3">Todos los datos se almacenan en el sistema central de Faculty Hub. Las comunicaciones están protegidas por autenticación corporativa: solo el usuario autenticado puede ver y modificar sus datos.</p>
+  </section>
+
+  <!-- Futuro -->
+  <section id="futuro">
+    <h2 class="section-title">Funcionalidades planificadas</h2>
+    <p>La aplicación tiene previsto incorporar secciones adicionales en fase de desarrollo pero no activas en versión actual:</p>
+    <div class="row g-3 mt-2">
+      <div class="col-md-4">
+        <div class="card border-secondary h-100">
+          <div class="card-body">
+            <h6 class="card-title text-secondary">📬 Solicitudes (Requests)</h6>
+            <p class="card-text small mb-0">Gestionar solicitudes formales de actividad docente. Definición funcional pendiente.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-secondary h-100">
+          <div class="card-body">
+            <h6 class="card-title text-secondary">🎓 Evaluaciones (Evaluations)</h6>
+            <p class="card-text small mb-0">Procesos de evaluación docente. Integración en fase de diseño.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-secondary h-100">
+          <div class="card-body">
+            <h6 class="card-title text-secondary">📅 Mis Sesiones</h6>
+            <p class="card-text small mb-0">Vista de sesiones de docencia confirmadas. Contemplada en arquitectura, no activa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <small>Faculty Tasks — Documentación Funcional</small><br>
+        <small class="text-muted">Generado: 2026-04-28</small>
+      </div>
+      <div class="col-md-6 text-end">
+        <small class="text-muted">SPFx 1.21.1 · SharePoint Online · Microsoft Teams</small>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

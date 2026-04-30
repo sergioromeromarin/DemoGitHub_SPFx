@@ -1,0 +1,184 @@
+@import '~@fluentui/react/dist/sass/References.scss';
+@import 'src/styles/Mixins.module.scss';
+
+.card {
+  background: var(--bodyBackground);
+  border: 1px solid var(--bodyDivider);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  height: 350px;
+  padding: 0;
+  cursor: grab;
+}
+
+
+.imageSection {
+  height: 110px;          
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+}
+
+.imageSection img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  padding: 14px 16px 12px;
+}
+
+
+.header {
+  display: flex;
+  align-items: flex-start; 
+  gap: 10px;
+}
+
+.headerIcon {
+  color: var(--bodyText);
+  opacity: 0.65;
+}
+
+.headerTitle {
+  flex: 1 1 auto;
+  min-width: 0;
+
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--bodyText);
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  line-height: 1.2;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  max-height: calc(1.2em * 2);
+}
+
+
+.divider {
+  margin: 10px 0 12px;
+  height: 1px;
+  background: var(--bodyDivider);
+}
+
+.status {
+  font-size: 15px;
+  font-weight: 800;
+  color: #d13438;
+  letter-spacing: 0.3px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+
+.description {
+  font-size: 13px;
+  color: var(--bodyText);
+  opacity: 0.8;
+  line-height: 1.35;
+  margin-bottom: 8px;
+  overflow: hidden;
+  display: -webkit-box;
+  height: 68px;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-height: calc(1.35em * 3); // <-- asegura el alto exacto a 3 líneas
+  flex: 1 1 auto; 
+  min-height: 0;
+}
+.bottom {
+  margin-top: auto;
+}
+.footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  min-width: 0;
+}
+
+.dueDate {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.metaLabel {
+  font-size: 13px;
+  color: var(--link);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.metaValue {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--bodyText);
+}
+
+.supervisor {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  // justify-content: flex-end;
+}
+
+.supervisorPersona {
+  min-width: 0;
+
+  :global(.ms-Persona-details) {
+    min-width: 0;
+  }
+
+  :global(.ms-Persona-primaryText) {
+    font-size: 13px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.1;
+  }
+
+  :global(.ms-Persona-secondaryText) {
+    display: none;
+  }
+}
+
+.actions {
+  margin-top: auto;
+  padding-top: 6px;
+
+  :global(.ms-Button) {
+    border: 2px solid var(--link);
+    border-radius: 0;
+    background: var(--bodyBackground);
+  }
+
+  :global(.ms-Button-label) {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    color: var(--link);
+    text-transform: uppercase;
+  }
+}

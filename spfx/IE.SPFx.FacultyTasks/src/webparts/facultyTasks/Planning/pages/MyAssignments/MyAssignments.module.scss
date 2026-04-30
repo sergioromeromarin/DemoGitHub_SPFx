@@ -1,0 +1,25 @@
+@import '~@fluentui/react/dist/sass/References.scss';
+
+
+.subMenu {
+  position: sticky;
+  top: 130px;
+  /* debajo del menú principal */
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.8rem 2rem;
+  z-index: 999;
+}
+
+a {
+  text-decoration: none;
+  color: #002366;
+  font-weight: 500;
+}
+
+a.active {
+  font-weight: 700;
+  border-bottom: 3px solid #002366;
+}

@@ -1,0 +1,95 @@
+@import 'src/styles/Mixins.module.scss';
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 300;
+    height: 85px;
+
+    // Si me pasan imagen de fondo, descomentar esto
+    //     background-image: url('../../assets/header-bg.jpg');
+    //     background-size: cover;
+    //     background-position: center;
+
+    background:
+        linear-gradient(-60deg,
+            #154797 0,
+            #154797 15%,
+            #103d86 15%,
+            #103d86 30%,
+            #0b3070 30%,
+            #0b3070 45%,
+            #154797 45%,
+            #154797 60%,
+            #103d86 60%,
+            #103d86 75%,
+            #0b3070 75%,
+            #0b3070 90%,
+            #154797 90%,
+            #154797 100%),
+        /* Fondo base */
+        #103d86;
+    background-blend-mode: multiply, normal, normal;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: 2.4rem;
+    padding: 0 25px 0 35px;
+    color: white;
+
+    @include media(xs) {
+        height: 55px;
+        padding: 0 5px 0 12px;
+        column-gap: 1.2rem;
+    }
+
+    @include media(sm) {
+        height: 55px;
+        padding: 0 5px 0 12px;
+        column-gap: 1.2rem;
+    }
+
+    .title {
+        font-size: 2.1rem;
+        font-weight: 100;
+        letter-spacing: 2px;
+
+        @include media(xs) {
+            font-size: 1.7rem;
+            letter-spacing: 1.2px;
+        }
+
+        @include media(sm) {
+            font-size: 1.7rem;
+            letter-spacing: 1.2px;
+        }
+    }
+
+    .logo {
+        // padding-right: 3rem;
+
+        // @include media(xs) {
+        //     padding-right: 1.4rem;
+        // }
+
+        // @include media(sm) {
+        //     padding-right: 1.4rem;
+        // }
+
+        img {
+            height: 65px;
+            width: 100%;
+            object-fit: cover;
+
+            @include media(xs) {
+                height: 40px;
+            }
+
+            @include media(sm) {
+                height: 40px;
+            }
+        }
+
+    }
+}

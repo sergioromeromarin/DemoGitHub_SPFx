@@ -1,0 +1,76 @@
+@import 'src/styles/Mixins.module.scss';
+
+.cardsContainer {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+.card {
+    flex: 0 1 380px;
+    background: white;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #e1e1e1;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    &:focus {
+        outline: 2px solid #605e5c;
+        outline-offset: 2px;
+    }
+
+    .cardImageSection {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+    }
+
+    .cardImage {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .cardTextSection {
+        background: linear-gradient(135deg, #002166 0%, #002166 60%, #002f91 100%);
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100px;
+    }
+
+    .cardTitle {
+        font-size: 22px;
+        font-weight: 700;
+        margin: 0;
+        line-height: 1.4;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        text-align: center;
+        color: white;
+    }
+}

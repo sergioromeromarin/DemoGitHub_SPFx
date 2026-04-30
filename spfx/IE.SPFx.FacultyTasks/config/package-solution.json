@@ -1,0 +1,54 @@
+{
+     "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+     "solution": {
+          "name": "faculty-tasks",
+          "id": "c2e15004-6bfb-43f9-9db2-f25baa57e517",
+          "version": "1.0.0.77",
+          "includeClientSideAssets": true,
+          "skipFeatureDeployment": true,
+          "isDomainIsolated": false,
+          "developer": {
+               "name": "CyC",
+               "websiteUrl": "",
+               "privacyUrl": "",
+               "termsOfUseUrl": "",
+               "mpnId": "Undefined-1.21.1"
+          },
+          "webApiPermissionRequests": [
+               {
+                    "resource": "Microsoft Graph",
+                    "scope": "Group.Read.All"
+               },
+               {
+                    "resource": "Microsoft Graph",
+                    "scope": "ProfilePhoto.Read.All"
+               },
+               {
+                    "resource": "IE-FacultyHubWebAPI-Dev",
+                    "scope": "user_impersonation"
+               }
+          ],
+          "metadata": {
+               "shortDescription": {
+                    "default": "Teams app where a teacher can manage their planning and assignments"
+               },
+               "longDescription": {
+                    "default": "Teams app where a teacher can manage their planning and assignments"
+               },
+               "screenshotPaths": [],
+               "videoUrl": "",
+               "categories": []
+          },
+          "features": [
+               {
+                    "title": "faculty-tasks Feature",
+                    "description": "The feature that activates elements of the faculty-tasks solution.",
+                    "id": "6a077754-31f8-4136-9880-76c20ecf1880",
+                    "version": "1.0.0.0"
+               }
+          ]
+     },
+     "paths": {
+          "zippedPackage": "solution/faculty-tasks.sppkg"
+     }
+}

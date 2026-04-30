@@ -1,0 +1,56 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.15/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.15",
+    "version": "1.0.9",
+    "id": "0ad9b345-1788-49b6-9104-65b77e764d2d",
+    "packageName": "cyc.ie.facultytasks",
+    "developer": {
+        "name": "IE University",
+        "websiteUrl": "https://www.ie.edu/",
+        "privacyUrl": "https://www.ie.edu/privacy-policy/",
+        "termsOfUseUrl": "https://www.ie.edu/legal-notice/",
+        "mpnId": ""
+    },
+    "name": {
+        "short": "Faculty tasks",
+        "full": "Faculty tasks"
+    },
+    "description": {
+        "short": "Teams app where a teacher can manage their tasks, as planning and allocations",
+        "full": "Teams app where a teacher can manage their tasks, as planning and allocations"
+    },
+    "icons": {
+        "outline": "icon_outline.png",
+        "color": "icon_color.png"
+    },
+    "accentColor": "#FFFFFF",
+    "staticTabs": [
+        {
+            "entityId": "cyc.ie.facultytask",
+            "name": "Faculty tasks",
+            "contentUrl": "https://{teamSiteDomain}/_layouts/15/TeamsLogon.aspx?SPFX=true&dest=/_layouts/15/teamshostedapp.aspx%3Fteams%26personal%26componentId=809de794-ce35-44f7-b6f7-b45f145c15ba%26forceLocale={locale}",
+            "websiteUrl": "https://products.office.com/en-us/sharepoint/collaboration",
+            "scopes": [
+                "personal"
+            ]
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [
+        "*.login.microsoftonline.com",
+        "*.sharepoint.com",
+        "*.sharepoint-df.com",
+        "spoppe-a.akamaihd.net",
+        "spoprod-a.akamaihd.net",
+        "resourceseng.blob.core.windows.net",
+        "msft.spoppe.com"
+    ],
+    "webApplicationInfo": {
+        "id": "00000003-0000-0ff1-ce00-000000000000",
+        "resource": "https://{teamSiteDomain}"
+    },
+    "isFullScreen": true
+}

@@ -1,0 +1,76 @@
+@import '~@fluentui/react/dist/sass/References.scss';
+
+@mixin media($media) {
+    @if $media==xs {
+
+        // 480px
+        @media (max-width: $ms-screen-min-md) {
+
+            @content;
+        }
+    }
+
+    @else if $media==sm {
+
+        // 480px - 640px
+        @media (min-width: $ms-screen-min-md) and (max-width: $ms-screen-min-lg) {
+            @content;
+        }
+    }
+
+    @else if $media==md {
+
+        // 640px - 1024px
+        @media (min-width: $ms-screen-min-lg) and (max-width: $ms-screen-min-xl) {
+            @content;
+        }
+    }
+
+    @else if $media==xmd {
+
+        // 1024px - 1366px
+        @media (min-width: $ms-screen-min-xl) and (max-width: ($ms-screen-min-xxl - 1)) {
+            @content;
+        }
+    }
+
+    @else if $media==lg {
+
+        // 1366px - 1920px
+        @media (min-width: $ms-screen-min-xxl) and (max-width: $ms-screen-min-xxxl) {
+            @content;
+        }
+    }
+
+    @else if $media==xlg {
+
+        // 1920px
+        @media (min-width: $ms-screen-min-xxxl) {
+            @content;
+        }
+    }
+}
+
+@mixin line-clamp($numLines : 2, $lineHeight: 16) {
+
+    overflow: hidden;
+    text-overflow: -o-ellipsis-lastline;
+    text-overflow: ellipsis;
+    display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: $numLines;
+    -webkit-box-orient: vertical;
+    max-height: $numLines * $lineHeight + unquote('px');
+    margin-bottom: 8px;
+    // padding-bottom: 8px;
+
+    @include media(xs) {
+        margin-bottom: 5px;
+        padding-bottom: 4px;
+    }
+
+    @include media(sm) {
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+    }
+}

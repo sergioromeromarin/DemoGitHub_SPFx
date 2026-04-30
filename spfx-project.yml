@@ -1,0 +1,48 @@
+# Manifest de proyecto SPFx — DemoGitHub_SPFx
+# Configura el comportamiento de skills y agents para esta solución SharePoint Framework.
+
+# Dominio del proyecto
+domain: SPFx
+
+# Versión de SPFx de la solución
+# Valores comunes: 1.18 | 1.19 | 1.20 | 1.21
+spfx_version: "1.21"
+
+# Carpeta relativa con los fuentes SPFx
+# Estructura esperada: <solution_folder>/src/webparts/, <solution_folder>/src/extensions/, <solution_folder>/src/adaptiveCardExtensions/
+solution_folder: "spfx/IE.SPFx.FacultyTasks"
+
+# Carpeta de copybooks, schemas o contratos de dependencias externas
+dependencies_folder: ""
+
+# Carpeta con el CSV histórico de costes
+costs_folder: "costs"
+
+# Carpetas de salida para artefactos generados
+output_md_folder: "output/md"
+output_html_folder: "output/html"
+
+# Tecnologías a detectar durante el análisis
+technologies:
+  - Graph API
+  - SharePoint REST
+  - PnP JS
+  - Teams
+  - Viva Connections
+  - AAD SSO
+
+# Tabla de pesos por tipo de componente SPFx
+# (relativo a base 1.0 — usado por cost-estimator)
+cost_weights:
+  WebPart: 1.0
+  ApplicationCustomizer: 0.8
+  FieldCustomizer: 0.7
+  CommandSet: 0.7
+  AdaptiveCardExtension: 0.9
+  Service: 0.6
+
+# Idioma de la documentación generada
+language: es
+
+# Versión del framework agéntico usada
+framework_version: "1.0.0"

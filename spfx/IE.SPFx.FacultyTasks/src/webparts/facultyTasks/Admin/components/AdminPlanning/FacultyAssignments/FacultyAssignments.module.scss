@@ -1,0 +1,100 @@
+@import '~@fluentui/react/dist/sass/References.scss';
+
+
+.modal {
+    height: 600px;
+    width: 600px;
+
+    :global {
+        .ms-Modal-scrollableContent {
+            height: 100% !important;
+            font-family: 'Montserrat', sans-serif;
+            // display: flex;
+            // flex-direction: column;
+        }
+
+        .ms-Label {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .ms-TextField {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .ms-MessageBar-innerText {
+            font-family: 'Montserrat', sans-serif;
+        }
+    }
+
+    .modalTitle {
+        flex: 1 1 auto;
+        border-top: 4px solid black;
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: 400;
+        padding: 12px 12px 14px 24px;
+    }
+
+    .modalContainer {
+        flex: 4 4 auto;
+        padding: 0 24px 0px 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 85%;
+
+        .spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .facultyAssignments {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+
+            .facultyMember {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .facultyMember {
+                display: flex;
+                flex-direction: row;
+                margin-top: 1.5rem;
+                justify-content: space-between;
+                column-gap: 0.5rem;
+                align-items: center;
+
+                .downloadSpinner {
+                    margin: 0;
+                    height: 32px !important;
+                }
+            }
+
+            .exportButtons {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 1rem;
+                margin-top: auto;
+
+                button {
+                    width: 50%;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+    }
+}
+
+.footerButtons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+}

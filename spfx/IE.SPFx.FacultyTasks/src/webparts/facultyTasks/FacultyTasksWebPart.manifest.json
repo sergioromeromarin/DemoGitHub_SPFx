@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "809de794-ce35-44f7-b6f7-b45f145c15ba",
+  "alias": "FacultyTasksWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": [],
+  "supportsThemeVariants": true,
+  "supportsFullBleed": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Advanced"
+      },
+      "title": {
+        "default": "Faculty tasks"
+      },
+      "description": {
+        "default": "Teams app where a teacher can manage their planning and assignments"
+      },
+      "officeFabricIconFontName": "ReadingMode",
+      "properties": {}
+    }
+  ]
+}
